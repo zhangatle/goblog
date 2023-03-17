@@ -1,9 +1,9 @@
 package article
 
 import (
-	"goblog/logger"
-	"goblog/model"
-	"goblog/types"
+	"goblog/pkg/logger"
+	"goblog/pkg/model"
+	"goblog/pkg/types"
 )
 
 // Get 通过 ID 获取文章

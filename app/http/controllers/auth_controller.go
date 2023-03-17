@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"goblog/app/models/user"
 	"goblog/app/requests"
-	"goblog/auth"
-	"goblog/view"
+	"goblog/pkg/auth"
+	"goblog/pkg/view"
 	"net/http"
 )
 

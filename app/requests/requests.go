@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/thedevsaddam/govalidator"
-	"goblog/model"
+	"goblog/pkg/model"
 	"strings"
 )
 

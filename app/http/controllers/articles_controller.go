@@ -3,9 +3,9 @@ package controllers
 import (
 	"fmt"
 	"goblog/app/models/article"
-	"goblog/logger"
-	"goblog/route"
-	"goblog/view"
+	"goblog/pkg/logger"
+	"goblog/pkg/route"
+	"goblog/pkg/view"
 	"gorm.io/gorm"
 	"net/http"
 	"strconv"

@@ -3,7 +3,7 @@ package bootstrap
 import (
 	"goblog/app/models/article"
 	"goblog/app/models/user"
-	"goblog/model"
+	"goblog/pkg/model"
 	"gorm.io/gorm"
 	"time"
 )

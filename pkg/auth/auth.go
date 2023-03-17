@@ -3,8 +3,7 @@ package auth
 import (
 	"errors"
 	"goblog/app/models/user"
-	"goblog/session"
-
+	"goblog/pkg/session"
 	"gorm.io/gorm"
 )
 

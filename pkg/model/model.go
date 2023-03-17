@@ -1,7 +1,7 @@
 package model
 
 import (
-	"goblog/logger"
+	"goblog/pkg/logger"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	gormlogger "gorm.io/gorm/logger"

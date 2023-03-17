@@ -2,7 +2,7 @@ package user
 
 import (
 	"goblog/app/models"
-	"goblog/password"
+	"goblog/pkg/password"
 )
 
 // User 用户模型

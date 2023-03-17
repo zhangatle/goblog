@@ -1,9 +1,9 @@
 package view
 
 import (
-	"goblog/auth"
-	"goblog/logger"
-	"goblog/route"
+	"goblog/pkg/auth"
+	"goblog/pkg/logger"
+	"goblog/pkg/route"
 	"html/template"
 	"io"
 	"path/filepath"
