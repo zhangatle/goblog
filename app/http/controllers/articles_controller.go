@@ -9,7 +9,6 @@ import (
 	"goblog/pkg/view"
 	"gorm.io/gorm"
 	"net/http"
-	"unicode/utf8"
 )
 
 type ArticlesController struct {
@@ -42,7 +41,6 @@ func (*ArticlesController) Show(w http.ResponseWriter, r *http.Request) {
 
 // Index 文章列表页
 func (*ArticlesController) Index(w http.ResponseWriter, r *http.Request) {
-
 	// 1. 获取结果集
 	articles, err := article.GetAll()
 
@@ -61,25 +59,6 @@ func (*ArticlesController) Index(w http.ResponseWriter, r *http.Request) {
 func (*ArticlesController) Create(w http.ResponseWriter, r *http.Request) {
 
 	view.Render(w, view.D{}, "articles.create", "articles._form_field")
-}
-
-func validateArticleFormData(title string, body string) map[string]string {
-	errors := make(map[string]string)
-	// 验证标题
-	if title == "" {
-		errors["title"] = "标题不能为空"
-	} else if utf8.RuneCountInString(title) < 3 || utf8.RuneCountInString(title) > 40 {
-		errors["title"] = "标题长度需介于 3-40"
-	}
-
-	// 验证内容
-	if body == "" {
-		errors["body"] = "内容不能为空"
-	} else if utf8.RuneCountInString(body) < 10 {
-		errors["body"] = "内容长度需大于或等于 10 个字节"
-	}
-
-	return errors
 }
 
 // Store 文章创建页面

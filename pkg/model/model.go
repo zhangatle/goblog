@@ -11,7 +11,6 @@ import (
 
 var DB *gorm.DB
 
-// ConnectDB 初始化模型
 func ConnectDB() *gorm.DB {
 
 	var err error
@@ -29,7 +28,7 @@ func ConnectDB() *gorm.DB {
 
 	var level gormlogger.LogLevel
 	if config.GetBool("app.debug") {
-		// 读取不到数据也会显示
+		// 读取不到数据也会显示，需要打印所有sql记录则设置为info
 		level = gormlogger.Warn
 	} else {
 		// 只有错误才会显示
