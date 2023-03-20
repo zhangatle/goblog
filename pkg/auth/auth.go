@@ -17,7 +17,7 @@ func _getUID() string {
 }
 
 // User 获取登录用户信息
-func User() user.User {
+func User() *user.User {
 	uid := _getUID()
 	if len(uid) > 0 {
 		_user, err := user.Get(uid)
@@ -25,7 +25,7 @@ func User() user.User {
 			return _user
 		}
 	}
-	return user.User{}
+	return &user.User{}
 }
 
 // Attempt 尝试登录
@@ -54,7 +54,7 @@ func Attempt(email string, password string) error {
 }
 
 // Login 登录指定用户
-func Login(_user user.User) {
+func Login(_user *user.User) {
 	session.Put("uid", _user.GetStringID())
 }
 

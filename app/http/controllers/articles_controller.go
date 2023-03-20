@@ -5,6 +5,7 @@ import (
 	"goblog/app/models/article"
 	"goblog/app/policies"
 	"goblog/app/requests"
+	"goblog/pkg/auth"
 	"goblog/pkg/route"
 	"goblog/pkg/view"
 	"net/http"
@@ -54,9 +55,11 @@ func (*ArticlesController) Create(w http.ResponseWriter, r *http.Request) {
 
 // Store 文章创建页面
 func (ac *ArticlesController) Store(w http.ResponseWriter, r *http.Request) {
+	currentUser := auth.User()
 	_article := article.Article{
-		Title: r.PostFormValue("title"),
-		Body:  r.PostFormValue("body"),
+		Title:  r.PostFormValue("title"),
+		Body:   r.PostFormValue("body"),
+		UserID: currentUser.ID,
 	}
 	errors := requests.ValidateArticleForm(_article)
 
@@ -125,7 +128,7 @@ func (ac *ArticlesController) Update(w http.ResponseWriter, r *http.Request) {
 			_article.Title = r.PostFormValue("title")
 			_article.Body = r.PostFormValue("body")
 
-			errors := requests.ValidateArticleForm(_article)
+			errors := requests.ValidateArticleForm(*_article)
 
 			if len(errors) == 0 {
 				rowsAffected, err := _article.Update()
