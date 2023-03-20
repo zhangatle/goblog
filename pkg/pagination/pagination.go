@@ -146,7 +146,7 @@ func (p Pagination) Results(data interface{}) error {
 		offset = (page - 1) * p.PerPage
 	}
 
-	return p.db.Debug().Preload(clause.Associations).Limit(p.PerPage).Offset(offset).Find(data).Error
+	return p.db.Preload(clause.Associations).Limit(p.PerPage).Offset(offset).Find(data).Error
 }
 
 // TotalCount 返回的是数据库里的条数
