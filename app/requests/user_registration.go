@@ -41,7 +41,7 @@ func ValidateRegistrationForm(data *user.User) map[string][]string {
 
 	// 3. 配置初始化
 	opts := govalidator.Options{
-		Data:          &data,
+		Data:          data,
 		Rules:         rules,
 		TagIdentifier: "valid", // 模型中的 Struct 标签标识符
 		Messages:      messages,
